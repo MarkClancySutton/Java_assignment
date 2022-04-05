@@ -1,5 +1,6 @@
 package assignment;
 
+import java.util.HashMap;
 
 public class Control {
 
@@ -9,6 +10,7 @@ public class Control {
 		Fileprocessor file2 = new Fileprocessor();
 		file1.readwords("example.txt",10);                        
 		file2.readwords("writing.txt",10);
+	
 	
 		
 		
