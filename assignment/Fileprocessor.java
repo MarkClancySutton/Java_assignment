@@ -11,9 +11,11 @@ import java.util.Map;
 
 import java.util.Set;
 
+import javax.swing.JFileChooser;
 
 
-public class Fileprocessor {
+
+public class Fileprocessor  {
 	
 	 
 	static int j=0;
@@ -21,19 +23,19 @@ public class Fileprocessor {
 	HashMap<String,Integer> Wordlist = new HashMap<String, Integer>();
 	 
 	 ArrayList<String> wordlist = new ArrayList<String>();
-	 ArrayList<String> stoplist = new ArrayList<String>();
-	 int correctcounter=0;
+	 static ArrayList<String> stoplist = new ArrayList<String>();
+	 static int correctcounter=0;
+	 final JFileChooser filename1 = new JFileChooser();
+	 final JFileChooser filename2 = new JFileChooser();
+	 
+	  
+		
 	
 	 double percentage = 0;
-	public  void readwords(String filename, int n) {
+	public  void readwords(String filename, int n) 
+	{
 		
-		
-		 
-		 
-		
-		 
-		 
-		
+		        
 		    try (LineNumberReader r = new LineNumberReader(new FileReader(filename))) {
 		        String line;
 		        LineNumberReader b = new LineNumberReader(new FileReader("stop_words.txt"));
@@ -77,15 +79,7 @@ public class Fileprocessor {
 			    }  
 	           
 	            
-	            // got from interweb at https://stackoverflow.com/questions/43922882/how-to-print-hashmap-elements-from-max-to-min
-	            Wordlist.entrySet().stream()
-	            .sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(n)
-	            .forEach(x -> 
-	            {
-	            	System.out.println(x.getKey() + " Count is "+ x.getValue());
-	            		
-	            		
-	            });
+	            
 	            //check to see if the words are the sme or not
 	            for (String key: Wordlist.keySet())
 	            {
@@ -100,27 +94,11 @@ public class Fileprocessor {
 		            			
 		            	} 
 	            	} 
-	            	else 
-	            	{ 
-	            	       // Definitely no such key 
-	            	} 
+	            	
 	            }
 	            
 	            //creates and prints out the probability of being the same file
-	            if (j == 1)
-	            {
-	            	percentage = correctcounter*100/n;
-	            	System.out.println(percentage+"% chance of being the same work");
-	            	if(percentage>39) 
-	            	{
-	            		System.out.println("\nThese are too close to be a coincidence more than likely the same file");
-	            	}
-	            	else 
-	            	{
-	            		System.out.println("\nThese files are too different to be the same");
-	            	}
-	            	
-	            }
+	          
 	            //Stores the first files values and key into a new hashmap to be compared later 	
 	            if(j == 0)
 	     		{
@@ -142,14 +120,26 @@ public class Fileprocessor {
 				e.printStackTrace();
 			}
 		    
+		 
 		   
-		   
-		    System.out.println("\n");
+		    
 		    
 		   
 		   
 		    
 		    
 	}
+	public void printhashmap(int n) {
+		
 	
+		Wordlist.entrySet().stream()
+    	.sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(n)
+    	.forEach(x -> 
+    	{
+    		System.out.println(x.getKey() + " Count is "+ x.getValue());
+    		
+    		
+    	});
+		System.out.println("\n");
+	}
 }
