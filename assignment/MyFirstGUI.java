@@ -1,5 +1,6 @@
 package assignment;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +29,7 @@ public class MyFirstGUI extends Fileprocessor  implements ActionListener{
 	//Title of site
 	
 	
-	frame1.setTitle("GUI-First");
+	frame1.setTitle("Data Modeler ");
 	frame1.setVisible(true);
 	frame1.setSize(400,350);
 	FlowLayout experimentLayout = new FlowLayout();
@@ -55,6 +56,14 @@ public class MyFirstGUI extends Fileprocessor  implements ActionListener{
 	button4 = new JButton();
 	button5 = new JButton();
 	button6 = new JButton();
+	
+	//Set the color of the panels 
+	panel2.setBackground(Color.black);
+	panel3.setBackground(Color.blue);
+	panel4.setBackground(Color.red);
+	panel5.setBackground(Color.green);
+	panel6.setBackground(Color.green);
+	
 	
 	//create the first button to read in the first file
 	panel2.add(button1);
@@ -149,6 +158,7 @@ public class MyFirstGUI extends Fileprocessor  implements ActionListener{
 			Fileprocessor file2 = new Fileprocessor();
 			file1.readwords(f.getPath(),n);                        
 			file2.readwords(h.getPath(),n);
+			
 			
 			//Checks to see if a value for n is inputed 
 			//If yes then runs as normal 

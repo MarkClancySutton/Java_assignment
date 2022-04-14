@@ -27,6 +27,7 @@ public class Fileprocessor  {
 	final JFileChooser filename1 = new JFileChooser();
 	final JFileChooser filename2 = new JFileChooser();
 	double percentage = 0;
+	
 	public  void readwords(String filename, int n) 
 	{
 		
@@ -109,15 +110,7 @@ public class Fileprocessor  {
 			    	tempWordlist.putAll(Wordlist);
 	 			    j =1;
 	     		}
-	            	
-	           
-	           
-			       
-			       
-			        
-			    
- 
-	
+	       
 		    }//end try 
 		    catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -128,7 +121,7 @@ public class Fileprocessor  {
 	//Method used to print the hashmap with the word and the count displayed nicely
 	public void printhashmap(int n) {
 		
-	
+		//got form internet at https://stackoverflow.com/questions/43922882/how-to-print-hashmap-elements-from-max-to-min
 		Wordlist.entrySet().stream()
     	.sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(n)
     	.forEach(x -> 
